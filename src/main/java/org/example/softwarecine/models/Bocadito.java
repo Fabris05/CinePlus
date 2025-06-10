@@ -11,6 +11,8 @@ public class Bocadito {
     private int id;
 
     private String nombre;
+    private String categoria;
+    private int stock;
     private String descripcion;
     private Double precio;
     private String imagen;
@@ -32,6 +34,22 @@ public class Bocadito {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    public String getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
+    }
+
+    public int getStock() {
+        return stock;
+    }
+
+    public void setStock(int stock) {
+        this.stock = stock;
     }
 
     public String getDescripcion() {
