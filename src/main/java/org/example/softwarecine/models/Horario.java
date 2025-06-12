@@ -3,6 +3,7 @@ package org.example.softwarecine.models;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 
 @Entity
 @Table(name = "Horario")
@@ -10,26 +11,26 @@ public class Horario {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private int idHorario;
 
-    private LocalDate hora;
+    private LocalTime hora;
 
     public Horario() {
     }
 
-    public int getId() {
-        return id;
+    public int getIdHorario() {
+        return idHorario;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setIdHorario(int idHorario) {
+        this.idHorario = this.idHorario;
     }
 
-    public LocalDate getHora() {
+    public LocalTime getHora() {
         return hora;
     }
 
-    public void setHora(LocalDate hora) {
+    public void setHora(LocalTime hora) {
         this.hora = hora;
     }
 }

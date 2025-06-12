@@ -2,7 +2,6 @@ package org.example.softwarecine.models;
 
 import jakarta.persistence.*;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity
@@ -11,7 +10,7 @@ public class MovimientoPuntos {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private int idMovimiento;
 
     @ManyToOne
     @JoinColumn(name = "idSocio")
@@ -30,12 +29,12 @@ public class MovimientoPuntos {
     public MovimientoPuntos() {
     }
 
-    public int getId() {
-        return id;
+    public int getIdMovimiento() {
+        return idMovimiento;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setIdMovimiento(int idMovimiento) {
+        this.idMovimiento = idMovimiento;
     }
 
     public Socio getSocio() {
@@ -62,11 +61,11 @@ public class MovimientoPuntos {
         this.puntos = puntos;
     }
 
-    public LocalDate getFecha() {
+    public LocalDateTime getFecha() {
         return fecha;
     }
 
-    public void setFecha(LocalDate fecha) {
+    public void setFecha(LocalDateTime fecha) {
         this.fecha = fecha;
     }
 

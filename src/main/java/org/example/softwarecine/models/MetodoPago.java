@@ -7,7 +7,7 @@ import jakarta.persistence.*;
 public class MetodoPago {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private int idMetodo;
 
     private String nombre;
 

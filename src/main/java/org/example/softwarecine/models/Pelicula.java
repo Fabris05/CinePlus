@@ -2,17 +2,19 @@ package org.example.softwarecine.models;
 
 import jakarta.persistence.*;
 
+import java.time.LocalTime;
+
 @Entity
 @Table(name = "Pelicula")
 public class Pelicula {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int idPelicula;
 
     private String nombre;
     private String director;
-    private String duracion;
+    private LocalTime duracion;
     private String genero;
     private String clasificacion;
     private String sinopsis;
@@ -22,12 +24,12 @@ public class Pelicula {
     public Pelicula() {
     }
 
-    public int getId() {
-        return id;
+    public int getIdPelicula() {
+        return idPelicula;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setIdPelicula(int idPelicula) {
+        this.idPelicula = idPelicula;
     }
 
     public String getNombre() {
@@ -46,11 +48,11 @@ public class Pelicula {
         this.director = director;
     }
 
-    public String getDuracion() {
+    public LocalTime getDuracion() {
         return duracion;
     }
 
-    public void setDuracion(String duracion) {
+    public void setDuracion(LocalTime duracion) {
         this.duracion = duracion;
     }
 

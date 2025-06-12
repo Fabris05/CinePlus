@@ -3,6 +3,7 @@ package org.example.softwarecine.models;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "Venta")
@@ -10,7 +11,7 @@ public class Venta {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private int idVenta;
 
     @ManyToOne(optional = true)
     @JoinColumn(name = "idCliente")
@@ -28,7 +29,7 @@ public class Venta {
     @JoinColumn(name = "idMetodo")
     private MetodoPago metodoPago;
 
-    private LocalDate fecha;
+    private LocalDateTime fecha;
 
     private Double total;
 
@@ -37,12 +38,12 @@ public class Venta {
     public Venta() {
     }
 
-    public int getId() {
-        return id;
+    public int getIdVenta() {
+        return idVenta;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setIdVenta(int idVenta) {
+        this.idVenta = idVenta;
     }
 
     public Cliente getCliente() {
@@ -77,11 +78,11 @@ public class Venta {
         this.metodoPago = metodoPago;
     }
 
-    public LocalDate getFecha() {
+    public LocalDateTime getFecha() {
         return fecha;
     }
 
-    public void setFecha(LocalDate fecha) {
+    public void setFecha(LocalDateTime fecha) {
         this.fecha = fecha;
     }
 

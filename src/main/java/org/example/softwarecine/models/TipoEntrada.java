@@ -8,7 +8,7 @@ public class TipoEntrada {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private int idTipoEntrada;
 
     private String tipo;
 
@@ -17,12 +17,12 @@ public class TipoEntrada {
     public TipoEntrada() {
     }
 
-    public int getId() {
-        return id;
+    public int getIdTipoEntrada() {
+        return idTipoEntrada;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setIdTipoEntrada(int idTipoEntrada) {
+        this.idTipoEntrada = this.idTipoEntrada;
     }
 
     public String getTipo() {

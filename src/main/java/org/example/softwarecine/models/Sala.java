@@ -8,7 +8,7 @@ public class Sala {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private int idSala;
 
     private int numero;
 
@@ -17,12 +17,12 @@ public class Sala {
     public Sala() {
     }
 
-    public int getId() {
-        return id;
+    public int getIdSala() {
+        return idSala;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setIdSala(int idSala) {
+        this.idSala = idSala;
     }
 
     public int getNumero() {

@@ -10,7 +10,7 @@ public class Cartelera {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Integer idCartelera;
 
     @ManyToOne
     @JoinColumn(name = "idPelicula")
@@ -29,12 +29,12 @@ public class Cartelera {
     public Cartelera() {
     }
 
-    public Integer getId() {
-        return id;
+    public Integer getIdcartelera() {
+        return idCartelera;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setIdCartelera(Integer idCartelera) {
+        this.idCartelera = idCartelera;
     }
 
     public Pelicula getPelicula() {

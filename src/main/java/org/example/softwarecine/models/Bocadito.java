@@ -8,7 +8,7 @@ public class Bocadito {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private int idBocadito;
 
     private String nombre;
     private String categoria;
@@ -20,12 +20,12 @@ public class Bocadito {
     public Bocadito() {
     }
 
-    public int getId() {
-        return id;
+    public int getIdBocadito() {
+        return idBocadito;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setIdBocadito(int idBocadito) {
+        this.idBocadito = this.idBocadito;
     }
 
     public String getNombre() {

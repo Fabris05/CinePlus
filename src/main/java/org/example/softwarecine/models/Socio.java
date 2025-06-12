@@ -10,7 +10,7 @@ import java.util.Date;
 public class Socio {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private int idSocio;
 
     private String nombre;
     private String apellido;
@@ -30,12 +30,12 @@ public class Socio {
     public Socio() {
     }
 
-    public int getId() {
-        return id;
+    public int getIdSocio() {
+        return idSocio;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setIdSocio(int idSocio) {
+        this.idSocio = idSocio;
     }
 
     public String getNombre() {

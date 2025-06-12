@@ -8,19 +8,19 @@ public class Butaca {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private int idButaca;
 
     private String codigo;
 
     public Butaca() {
     }
 
-    public int getId() {
-        return id;
+    public int getIdButaca() {
+        return idButaca;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setIdButaca(int idButaca) {
+        this.idButaca = idButaca;
     }
 
     public String getCodigo() {
