@@ -2,6 +2,7 @@ package org.example.softwarecine.models;
 
 import jakarta.persistence.*;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity
@@ -21,6 +22,8 @@ public class MovimientoPuntos {
     private int puntos;
 
     private LocalDateTime fecha;
+
+    //private LocalDate fechaVencimiento;
 
     @ManyToOne(optional = true)
     @JoinColumn(name = "idVenta")

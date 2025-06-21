@@ -12,10 +12,10 @@ public class Bocadito {
 
     private String nombre;
     private String categoria;
-    private int stock;
     private String descripcion;
     private Double precio;
     private String imagen;
+    private String estado;
 
     public Bocadito() {
     }
@@ -44,14 +44,6 @@ public class Bocadito {
         this.categoria = categoria;
     }
 
-    public int getStock() {
-        return stock;
-    }
-
-    public void setStock(int stock) {
-        this.stock = stock;
-    }
-
     public String getDescripcion() {
         return descripcion;
     }
@@ -74,5 +66,13 @@ public class Bocadito {
 
     public void setImagen(String imagen) {
         this.imagen = imagen;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
     }
 }

@@ -12,7 +12,11 @@ public class TipoEntrada {
 
     private String tipo;
 
+    private String descripcion;
+
     private Double precio;
+
+    private String estado;
 
     public TipoEntrada() {
     }
@@ -33,11 +37,27 @@ public class TipoEntrada {
         this.tipo = tipo;
     }
 
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
     public Double getPrecio() {
         return precio;
     }
 
     public void setPrecio(Double precio) {
         this.precio = precio;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
     }
 }

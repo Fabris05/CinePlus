@@ -16,6 +16,7 @@ public class Pelicula {
     private String director;
     private LocalTime duracion;
     private String genero;
+    //private String estudio;
     private String clasificacion;
     private String sinopsis;
     private String estado;

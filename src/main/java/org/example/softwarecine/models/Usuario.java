@@ -1,6 +1,7 @@
 package org.example.softwarecine.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 
 @Entity
@@ -16,7 +17,7 @@ public class Usuario {
     private String email;
     private String numDocumento;
 
-    @JsonIgnore
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String contrasenia;
 
     @ManyToOne

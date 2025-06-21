@@ -1,6 +1,8 @@
 package org.example.softwarecine.models;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 
 import java.util.Date;
@@ -18,9 +20,10 @@ public class Socio {
     private String tipoDocumento;
     private String numDocumento;
 
-    @JsonIgnore
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String contrasenia;
 
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date fechaInscripcion;
 
     @ManyToOne
