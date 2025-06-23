@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/peliculas")
@@ -25,5 +26,39 @@ public class PeliculaController {
     @PostMapping("/save")
     public ResponseEntity<?> savePelicula(@RequestBody Pelicula pelicula){
         return ResponseEntity.status(HttpStatus.CREATED).body(peliculaService.save(pelicula));
+    }
+
+    @PutMapping("/edit/{idPelicula}")
+    public ResponseEntity<?> update(@RequestBody Pelicula pelicula, @PathVariable Integer idPelicula){
+        Optional<Pelicula> peliculaOptional =peliculaService.update(pelicula, idPelicula);
+
+        if(peliculaOptional.isPresent()){
+            return ResponseEntity.status(HttpStatus.CREATED).body(peliculaOptional.get());
+        }else{
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Pelicula no encontrada");
+        }
+    }
+
+    @PatchMapping("/edit/state/{idPelicula}")
+    public ResponseEntity<?> updateState(@RequestBody Pelicula pelicula, @PathVariable Integer idPelicula){
+        Optional<Pelicula> peliculaOptional =peliculaService.updateState(pelicula, idPelicula);
+
+        if(peliculaOptional.isPresent()){
+            return ResponseEntity.status(HttpStatus.CREATED).body(peliculaOptional.get());
+        }else{
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Pelicula no encontrada");
+        }
+    }
+
+    @GetMapping("/{idPelicula}")
+    public ResponseEntity<?> findById(@PathVariable Integer idPelicula){
+
+        Optional<Pelicula> peliculaOp = peliculaService.findById(idPelicula);
+
+        if(peliculaOp.isPresent()){
+            return ResponseEntity.ok(peliculaOp.orElseThrow());
+        }
+
+        return ResponseEntity.notFound().build();
     }
 }

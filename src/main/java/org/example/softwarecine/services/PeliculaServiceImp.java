@@ -42,8 +42,21 @@ public class PeliculaServiceImp implements PeliculaService{
             peliculaBD.setClasificacion(pelicula.getClasificacion());
             peliculaBD.setGenero(pelicula.getGenero());
             peliculaBD.setDuracion(pelicula.getDuracion());
-            pelicula.setEstado(pelicula.getEstado());
 
+            peliculaOptional = save(peliculaBD);
+        }
+
+        return Optional.ofNullable(peliculaOptional);
+    }
+
+    @Override
+    public Optional<Pelicula> updateState(Pelicula pelicula, Integer id) {
+        Optional<Pelicula> peliculaOp = this.findById(id);
+        Pelicula peliculaOptional = null;
+
+        if(peliculaOp.isPresent()){
+            Pelicula peliculaBD = peliculaOp.orElseThrow();
+            peliculaBD.setEstado(pelicula.getEstado());
             peliculaOptional = save(peliculaBD);
         }
 

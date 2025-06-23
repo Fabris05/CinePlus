@@ -14,4 +14,6 @@ public interface PeliculaService {
     Pelicula save(Pelicula pelicula);
 
     Optional<Pelicula> update(Pelicula pelicula, Integer id);
+
+    Optional<Pelicula> updateState(Pelicula pelicula, Integer id);
 }
