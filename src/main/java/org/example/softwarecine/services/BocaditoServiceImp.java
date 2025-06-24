@@ -31,6 +31,32 @@ public class BocaditoServiceImp implements BocaditoService{
 
     @Override
     public Optional<Bocadito> update(Bocadito bocadito, Integer id) {
-        return Optional.empty();
+
+        Optional<Bocadito> bocaditoOp = this.findById(id);
+        Bocadito bocaditoOptional = null;
+
+        if(bocaditoOp.isPresent()){
+            Bocadito bocaditoBD = bocaditoOp.orElseThrow();
+            bocaditoBD.setNombre(bocadito.getNombre());
+            bocaditoBD.setCategoria(bocadito.getCategoria());
+            bocaditoBD.setDescripcion(bocadito.getDescripcion());
+            bocaditoBD.setPrecio(bocadito.getPrecio());
+            bocaditoOptional = save(bocaditoBD);
+        }
+        return Optional.ofNullable(bocaditoOptional);
+    }
+
+    @Override
+    public Optional<Bocadito> updateState(Bocadito bocadito, Integer id) {
+
+        Optional<Bocadito> bocaditoOp = this.findById(id);
+        Bocadito bocaditoOptional = null;
+
+        if(bocaditoOp.isPresent()){
+            Bocadito bocaditoBD = bocaditoOp.orElseThrow();
+            bocaditoBD.setEstado(bocadito.getEstado());
+            bocaditoOptional = save(bocaditoBD);
+        }
+        return Optional.ofNullable(bocaditoOptional);
     }
 }

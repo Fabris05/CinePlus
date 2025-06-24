@@ -13,4 +13,6 @@ public interface BocaditoService {
     Bocadito save(Bocadito bocadito);
 
     Optional<Bocadito> update(Bocadito bocadito, Integer id);
+
+    Optional<Bocadito> updateState(Bocadito bocadito, Integer id);
 }
