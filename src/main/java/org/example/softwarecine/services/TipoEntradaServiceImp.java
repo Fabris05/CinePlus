@@ -32,6 +32,32 @@ public class TipoEntradaServiceImp implements TipoEntradaService{
 
     @Override
     public Optional<TipoEntrada> update(TipoEntrada tipoEntrada, Integer id) {
-        return Optional.empty();
+
+        Optional<TipoEntrada> tipoEntradaOp = this.findById(id);
+        TipoEntrada tipoEntradaOptional = null;
+
+        if(tipoEntradaOp.isPresent()){
+            TipoEntrada tipoEntradaBD = tipoEntradaOp.orElseThrow();
+            tipoEntradaBD.setTipo(tipoEntrada.getTipo());
+            tipoEntradaBD.setDescripcion(tipoEntrada.getDescripcion());
+            tipoEntradaBD.setPrecio(tipoEntrada.getPrecio());
+            tipoEntradaOptional = save(tipoEntradaBD);
+        }
+        return Optional.ofNullable(tipoEntradaOptional);
+    }
+
+    @Override
+    public Optional<TipoEntrada> updateState(TipoEntrada tipoEntrada, Integer id) {
+
+        Optional<TipoEntrada> tipoEntradaOp = this.findById(id);
+
+        TipoEntrada tipoEntradaOptional = null;
+
+        if(tipoEntradaOp.isPresent()){
+            TipoEntrada tipoEntradaBD = tipoEntradaOp.orElseThrow();
+            tipoEntradaBD.setEstado(tipoEntrada.getEstado());
+            tipoEntradaOptional = save(tipoEntradaBD);
+        }
+        return Optional.ofNullable(tipoEntradaOptional);
     }
 }

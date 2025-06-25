@@ -33,11 +33,23 @@ public class SocioServiceImp implements SocioService{
 
     @Override
     public Optional<Socio> findById(Integer id) {
-        return Optional.empty();
+        return socioRepository.findById(id);
     }
 
     @Override
     public Optional<Socio> update(Socio socio, Integer id) {
-        return Optional.empty();
+        Optional<Socio> socioOp = this.findById(id);
+        Socio socioOptional = null;
+
+        if(socioOp.isPresent()){
+            Socio socioBD = socioOp.orElseThrow();
+            socioBD.setNombre(socio.getNombre());
+            socioBD.setApellido(socio.getApellido());
+            socioBD.setEmail(socio.getEmail());
+            socioBD.setTipoDocumento(socio.getTipoDocumento());
+            socioBD.setNumDocumento(socio.getNumDocumento());
+            socioOptional = save(socioBD);
+        }
+        return Optional.ofNullable(socioOptional);
     }
 }

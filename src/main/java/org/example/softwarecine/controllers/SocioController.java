@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/socio")
@@ -22,9 +23,24 @@ public class SocioController {
         return socioService.findAll();
     }
 
+    @GetMapping("/{idSocio}")
+    public ResponseEntity<?> findById(@PathVariable Integer idSocio){
+        return socioService.findById(idSocio).map(socio -> ResponseEntity.ok(socio))
+                .orElse(ResponseEntity.notFound().build());
+    }
+
     @PostMapping("/save")
     ResponseEntity<?> saveSocio(@RequestBody Socio socio){
         return ResponseEntity.status(HttpStatus.CREATED).body(socioService.save(socio));
     }
 
+    @PutMapping("/edit/{idSocio}")
+    ResponseEntity<?> updateSocio(@RequestBody Socio socio, @PathVariable Integer idSocio){
+        Optional<Socio> socioOp = socioService.update(socio, idSocio);
+        if(socioOp.isPresent()){
+            return ResponseEntity.status(HttpStatus.CREATED).body(socioOp.get());
+        }else{
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Socio no encontrado");
+        }
+    }
 }

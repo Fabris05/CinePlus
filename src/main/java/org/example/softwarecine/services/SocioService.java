@@ -13,4 +13,6 @@ public interface SocioService {
     Optional<Socio> findById(Integer id);
 
     Optional<Socio> update(Socio socio, Integer id);
+
+
 }

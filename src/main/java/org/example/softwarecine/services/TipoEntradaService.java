@@ -15,4 +15,6 @@ public interface TipoEntradaService {
 
     Optional<TipoEntrada> update(TipoEntrada tipoEntrada, Integer id);
 
+    Optional<TipoEntrada> updateState(TipoEntrada tipoEntrada, Integer id);
+
 }
