@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/usuario")
@@ -18,12 +19,32 @@ public class UsuarioController {
     UsuarioService usuarioService;
 
     @GetMapping
-    List<Usuario> getAllUsuarios(){
+    List<Usuario> getAllUsuarios() {
         return usuarioService.findAll();
     }
 
+    @GetMapping("/{idUsuario}")
+    public ResponseEntity<?> findById(@PathVariable Integer idUsuario) {
+        Optional<Usuario> usuarioOp = usuarioService.findById(idUsuario);
+        if (usuarioOp.isPresent()) {
+            return ResponseEntity.status(HttpStatus.OK).body(usuarioOp.get());
+        }
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Usuario no encontrado");
+
+    }
+
     @PostMapping("/save")
-    ResponseEntity<?> saveUsuario(@RequestBody Usuario usuario){
+    ResponseEntity<?> saveUsuario(@RequestBody Usuario usuario) {
         return ResponseEntity.status(HttpStatus.CREATED).body(usuarioService.save(usuario));
+    }
+
+    @PutMapping("/edit/{idUsuario}")
+    ResponseEntity<?> updateUsuario(@RequestBody Usuario usuario, @PathVariable Integer idUsuario) {
+        Optional<Usuario> usuarioOp = usuarioService.update(usuario, idUsuario);
+        if (usuarioOp.isPresent()) {
+            return ResponseEntity.status(HttpStatus.CREATED).body(usuarioOp.get());
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Usuario no encontrado");
+        }
     }
 }

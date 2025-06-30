@@ -9,6 +9,8 @@ public interface PeliculaService {
 
     List<Pelicula> findAll();
 
+    List<Pelicula> findByEstado(String estado);
+
     Optional<Pelicula> findById(Integer id);
 
     Pelicula save(Pelicula pelicula);

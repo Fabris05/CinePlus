@@ -20,10 +20,6 @@ public class Cartelera {
     @JoinColumn(name = "idSala")
     private Sala sala;
 
-    @ManyToOne
-    @JoinColumn(name = "idHorario")
-    private Horario horario;
-
     private LocalDate fecha;
 
     public Cartelera() {
@@ -51,14 +47,6 @@ public class Cartelera {
 
     public void setSala(Sala sala) {
         this.sala = sala;
-    }
-
-    public Horario getHorario() {
-        return horario;
-    }
-
-    public void setHorario(Horario horario) {
-        this.horario = horario;
     }
 
     public LocalDate getFecha() {

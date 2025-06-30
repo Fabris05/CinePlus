@@ -33,11 +33,23 @@ public class UsuarioServiceImp implements UsuarioService{
 
     @Override
     public Optional<Usuario> findById(Integer id) {
-        return Optional.empty();
+        return usuarioRepository.findById(id);
     }
 
     @Override
     public Optional<Usuario> update(Usuario usuario, Integer id) {
-        return Optional.empty();
+        Optional<Usuario> usuarioOp = this.findById(id);
+        Usuario usuarioOptional = null;
+
+        if(usuarioOp.isPresent()){
+            Usuario usuarioBD = usuarioOp.orElseThrow();
+            usuarioBD.setNombre(usuario.getNombre());
+            usuarioBD.setApellido(usuario.getApellido());
+            usuarioBD.setEmail(usuario.getEmail());
+            usuarioBD.setNumDocumento(usuario.getNumDocumento());
+            usuarioBD.setRol(usuario.getRol());
+            usuarioOptional = save(usuarioBD);
+        }
+        return Optional.ofNullable(usuarioOptional);
     }
 }

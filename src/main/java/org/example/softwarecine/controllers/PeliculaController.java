@@ -61,4 +61,9 @@ public class PeliculaController {
 
         return ResponseEntity.notFound().build();
     }
+
+    @GetMapping("/estado/{estado}")
+    public List<Pelicula> findByEstado(@PathVariable String estado){
+        return peliculaService.findByEstado(estado);
+    }
 }

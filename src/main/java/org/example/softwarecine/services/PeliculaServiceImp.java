@@ -20,6 +20,11 @@ public class PeliculaServiceImp implements PeliculaService{
     }
 
     @Override
+    public List<Pelicula> findByEstado(String estado) {
+        return peliculaRepository.findByEstado(estado);
+    }
+
+    @Override
     public Optional<Pelicula> findById(Integer id) {
         return peliculaRepository.findById(id);
     }
